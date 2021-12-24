@@ -1,0 +1,28 @@
+services:
+  common-backend-service:
+    container_name: common-backend-service
+    build: 
+      context: commonbackendservice
+    ports:
+      - 8081:8080
+    depends_on:
+      - db
+  db:
+    container_name: db
+    build:
+      context: database
+    ports:
+      - 3306:3306
+  customer-support-service:
+    container_name: customer-support-service
+    build:
+      context: customersupportservice
+  foreign-currency:
+    container_name: foreign-currency
+    build:
+      context: foreigncurrency 
+  recommendation-service:
+    container_name: recommendation-service
+    build:
+      context: recommendationservice  
+
